@@ -1,0 +1,49 @@
+<h2>Add A New Kid for Parent: <%= @kid.parent.p_name %></h2>
+
+
+
+<%= form_for @kid do |f| %>
+  <p>Name<br/>
+    <%= f.text_field :k_name %>
+  </p>
+  
+  <p>Email<br/>
+    <%= f.email_field :k_email %>
+  </p>
+
+
+
+
+    <%= f.hidden_field :parent_id %>
+
+	
+
+	<%= f.fields_for :account do |builder| %>
+		<%= builder.hidden_field :bank_id %>
+		<%= builder.hidden_field :time %>
+	<p>Account Name<br />
+		<%= builder.text_field :ac_name %>
+	</p>
+	<p>Interest Rate (%)<br/>
+		<%= builder.number_field :rate %>
+	</p> 
+	<p>Opening Balance ($)<br/>
+		<%= builder.number_field :bal_current %>
+	</p>
+	<% end %>
+		
+		
+
+
+
+
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>
+
+<%= link_to 'Back', parents_path %>
+

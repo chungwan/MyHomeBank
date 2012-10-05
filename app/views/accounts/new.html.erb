@@ -1,0 +1,39 @@
+<h2>Create New Account</h2>
+
+
+
+<%= form_for @account do |f| %>
+  <p>
+    Account Name<br/>
+    <%= f.text_field :ac_name %>
+  </p>
+
+ <p>
+    Interest Rate<br/>
+    <%= f.text_field :rate %>
+  </p>
+
+ <p>
+    Opening Balance<br/>
+    <%= f.text_field :bal_current %>
+  </p>
+
+
+
+
+
+
+
+
+
+    <%= f.hidden_field :kid_id %>
+   <%= f.hidden_field :bank_id %>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>
+
+<%= link_to 'Back', :back %>

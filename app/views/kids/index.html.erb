@@ -1,0 +1,28 @@
+<h2>Kids</h2>
+
+
+<table table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Parent</th>
+ 	<th>Bank</th>
+	<th>Account</th>
+	<th></th>
+  </tr>
+
+<% @kids.each do |kid| %>
+  <tr>
+    <td><%= link_to kid.k_name, kid %></td>
+    <td><%= kid.k_email %></td>
+   	<td><%= kid.parent.p_name if kid.parent %></td>
+	<td><%= kid.bank.b_name if kid.bank %></td>
+	<td><%= kid.account.ac_name if kid.account  %></td>
+	<td><%= link_to 'Destroy', kid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
+

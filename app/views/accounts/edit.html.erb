@@ -1,0 +1,20 @@
+<h2>Edit Account: <%= @account.kid.k_name %></h2>
+
+
+
+<%= form_for @account do |f| %>
+  <p>
+    Name<br/>
+    <%= f.text_field :ac_name %>
+  </p>
+  <p>
+        Rate<br/>
+    <%= f.text_field :rate %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<p><%= link_to 'Back', :back %></p>
+

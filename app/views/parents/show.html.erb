@@ -1,0 +1,36 @@
+<h2>Parent: <%= @parent.p_name %>'s Page</h2>
+
+<p>
+  <b>Name:</b>
+  <%= @parent.p_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @parent.p_email %>
+</p>
+
+<p>
+  <b>Bank:</b>
+<%= @parent.bank.b_name if @parent.bank %>
+</p>
+
+
+<p><div class="kids">  
+	<table class="table table-bordered">
+		<tr><th>Kid</th><th>Account</th></tr>
+	  <% @parent.kids.each do |kid| %>
+	    <tr><td><%= link_to kid.k_name, kid %></td>
+			<td><%= link_to_if kid.account, kid.account.ac_name, kid.account %></td></td>
+		</tr>
+	  <% end %>
+	</table>
+	</div>
+</p>
+
+
+
+<p><%= link_to_if @parent.bank, 'Add a new kid', new_kid_path(:parent_id=>@parent, :bank_id=>@parent.bank) %></p>
+
+<p><%= link_to 'Edit Parent Info', edit_parent_path(@parent) %></p>
+

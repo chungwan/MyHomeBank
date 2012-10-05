@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  k_name: MyString
+  k_email: MyString
+  parent: 
+
+two:
+  k_name: MyString
+  k_email: MyString
+  parent: 

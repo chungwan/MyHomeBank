@@ -1,0 +1,29 @@
+<h2>Create New Parent and Bank</h2>
+
+
+<%= form_for @parent do |f| %>
+  <p>
+    Name<br/>
+    <%= f.text_field :p_name %>
+  </p>
+  <p>
+  Email<br/>
+    <%= f.email_field :p_email %>
+  </p>
+
+
+	<%= f.fields_for :bank do |builder| %>
+	<p>
+		Bank Name<br />
+		<%= builder.text_field :b_name %>
+	</p>
+	<% end %>
+
+
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', parents_path %>

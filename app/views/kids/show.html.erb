@@ -1,0 +1,39 @@
+<h2>Kid: <%= @kid.k_name %>'s Page</h2>
+
+<p>
+  <b>Name:</b>
+  <%= @kid.k_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @kid.k_email %>
+</p>
+
+<p>
+  <b>Parent:</b>
+<%= link_to @kid.parent.p_name, @kid.parent %>
+</p>
+
+<p>
+  <b>Bank:</b>
+  <%= @kid.parent.bank.b_name  %>
+</p>
+
+
+<p>
+  <b>Account:</b>
+  <%= link_to @kid.account.ac_name, @kid.account if @kid.account %>
+</p>
+
+
+<p>
+<% if not @kid.account %>
+	<%= link_to 'Create Account', new_account_path(:kid_id=>@kid, :bank_id=>@kid.parent.bank.id) %>
+<% end %>
+</p>
+	
+	
+
+
+<p><%= link_to 'Edit Kid Info', edit_kid_path(@kid) %></p>

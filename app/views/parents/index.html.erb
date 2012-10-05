@@ -1,0 +1,27 @@
+<h2>Parents</h2>
+
+<table table class="table table-bordered">
+  <tr>
+	<th></th>
+    <th>Name</th>
+    <th>Bank</th>
+  	<th>Number of kids</th>
+ 	<th></th>
+  </tr>
+
+<% @parents.each do |parent| %>
+  <tr>
+	<td><%= check_box_tag(:pet_dog) %></td>
+    <td><%= link_to parent.p_name, parent %></td>
+    <td><%= parent.bank.b_name if parent.bank %></td>
+	<td><%= parent.kids.count if parent.kids %></td>
+	<td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
+<p><%= link_to 'Add A Parent', new_parent_path %></p>
+
+

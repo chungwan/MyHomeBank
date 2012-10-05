@@ -1,0 +1,5 @@
+Welcome to MyHomeBank App Prototype
+
+This goal of this app is to allow a parent to create a virtual home bank for his/her kid(s) as a tool to teach kids about finance (the power of compounding to start).
+
+Kids will be able to make deposits or withdrawals to its account. All transactions must be approved by parent. Account balance will show the deposits and withdrawals and earned interest. 

@@ -1,0 +1,27 @@
+<h2>Edit Kid: <%= @kid.k_name %></h2>
+
+
+<%= form_for @kid do |f| %>
+  <p>
+    Name<br/>
+    <%= f.text_field :k_name %>
+  </p>
+  <p>
+     Email<br/>
+    <%= f.text_field :k_email %>
+  </p>
+
+
+    <%= f.hidden_field :parent_id %>
+  
+
+
+
+
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>

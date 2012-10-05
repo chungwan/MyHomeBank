@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  b_name: MyString
+  parent: 
+
+two:
+  b_name: MyString
+  parent: 

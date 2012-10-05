@@ -1,0 +1,23 @@
+<h2>Banks</h2>
+
+<table table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Number of Accounts</th>
+	<th></th>
+  </tr>
+
+<% @banks.each do |bank| %>
+  <tr>
+    <td><%= bank.b_name %></td>
+    <td><%= bank.parent.p_name if bank.parent %></td>
+    <td><%= bank.accounts.count if bank.accounts %></td>
+	 <td><%= link_to 'Destroy', bank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ac_name: MyString
+  bank: 
+  kid: 
+
+two:
+  ac_name: MyString
+  bank: 
+  kid: 

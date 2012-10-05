@@ -1,0 +1,28 @@
+<h2>Account: <%= @account.ac_name %></h2>
+
+<p><b>Kid:</b> <%= link_to @account.kid.k_name, @account.kid %></p>
+<p><b>Bank:</b> <%= @account.bank.b_name %></p>
+<p><b>Interest Rate:</b> <%= @account.rate if @account.rate %> %</p>
+<hr></hr>
+
+<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />
+	Amount ($) 
+<%= form_for @account do |f| %>
+    <%= f.number_field :make_transaction %>
+	<%= f.submit "Confirm" %>
+<% end %>
+</p>
+
+
+<hr></hr>
+<p><b>Day:</b> <%= @account.time if @account.time %></p>
+<p><b>Last Balance:</b> $ <%= @account.bal_last if @account.bal_last %></p>
+<p><b>Interest Earned:</b> $ <%= @account.int_eanred if @account.int_eanred %></p>
+<p><b>Last Transaction:</b> $ <%= @account.last_tx if @account.last_tx %></p>
+<p><b>Current Balance:</b> $ <%= @account.bal_current if @account.bal_current %></p>
+
+
+
+<hr></hr>
+<p><%= link_to 'Edit Account Info', edit_account_path(@account) %></p>
+

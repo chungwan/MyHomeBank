@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>MyHomeBank</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="Container">
+	<div class="row">
+		<div class="span8"><h2><%= image_tag "mhb_logo.jpg" %> <%= link_to "MyHomeBank", home_index_path %></h2></div>
+		<div class="span4"><%= image_tag "cc.jpg" %> <%= link_to 'Chungwan', home_index_path %> | <%= link_to "Log Out", home_index_path %> | <%= link_to "Help", home_index_path %> |</div>
+	</div>
+</div>
+<hr></hr>
+</header>	
+	
+
+
+<%= yield %>
+
+
+
+<footer class="container">
+	<hr></hr>
+    <div>| <%= link_to 'Home', home_index_path %> | <%= link_to "About", home_about_path %> | <%= link_to "Admin", home_admin_path %> |</p>
+	</div>
+</footer>
+
+</div>
+</body>
+</html>
