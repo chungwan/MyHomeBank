@@ -16,10 +16,10 @@
 
 <hr></hr>
 <p><b>Day:</b> <%= @account.time if @account.time %></p>
-<p><b>Last Balance:</b> $ <%= @account.bal_last if @account.bal_last %></p>
-<p><b>Interest Earned:</b> $ <%= @account.int_eanred if @account.int_eanred %></p>
-<p><b>Last Transaction:</b> $ <%= @account.last_tx if @account.last_tx %></p>
-<p><b>Current Balance:</b> $ <%= @account.bal_current if @account.bal_current %></p>
+<p><b>Last Balance:</b> <%= number_to_currency(@account.bal_last) if @account.bal_last %></p>
+<p><b>Interest Earned:</b> <%= number_to_currency(@account.int_eanred) if @account.int_eanred %></p>
+<p><b>Last Transaction:</b> <%= number_to_currency(@account.last_tx) if @account.last_tx %></p>
+<p><b>Current Balance:</b> <%= number_to_currency(@account.bal_current) if @account.bal_current %></p>
 
 
 
