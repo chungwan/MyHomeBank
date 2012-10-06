@@ -1,6 +1,8 @@
 NewMHB::Application.routes.draw do
 
 
+  devise_for :users
+
   resources :parents
   resources :banks
   resources :kids 
