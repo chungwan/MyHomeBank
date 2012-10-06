@@ -4,7 +4,7 @@
 <table table class="table table-bordered">
   <tr>
     <th>Name</th>
-    <th>Email</th>
+    <th>User</th>
     <th>Parent</th>
  	<th>Bank</th>
 	<th>Account</th>
@@ -14,7 +14,7 @@
 <% @kids.each do |kid| %>
   <tr>
     <td><%= link_to kid.k_name, kid %></td>
-    <td><%= kid.k_email %></td>
+    <td><%= link_to kid.user.email, edit_user_registration_path if kid.user %></td>
    	<td><%= kid.parent.p_name if kid.parent %></td>
 	<td><%= kid.bank.b_name if kid.bank %></td>
 	<td><%= kid.account.ac_name if kid.account  %></td>
