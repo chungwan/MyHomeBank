@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006001510) do
+ActiveRecord::Schema.define(:version => 20121006033540) do
 
   create_table "accounts", :force => true do |t|
     t.string   "ac_name"
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(:version => 20121006001510) do
   end
 
   add_index "parents", ["user_id"], :name => "index_parents_on_user_id"
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "day"
+    t.float    "amount"
+    t.float    "earned"
+    t.float    "bal_begin"
+    t.float    "bal_end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "transactions", ["account_id"], :name => "index_transactions_on_account_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

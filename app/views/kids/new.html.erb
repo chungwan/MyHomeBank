@@ -32,6 +32,11 @@
 	</p>
 	<% end %>
 		
+	<%= f.fields_for :transaction do |builder| %>
+		<%= builder.hidden_field :day %>
+		<%= builder.hidden_field :bal_end %>
+	<% end %>
+			
 		
 
 

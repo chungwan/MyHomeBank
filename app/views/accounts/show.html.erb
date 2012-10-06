@@ -3,6 +3,7 @@
 <p><b>Kid:</b> <%= link_to @account.kid.k_name, @account.kid %></p>
 <p><b>Bank:</b> <%= @account.bank.b_name %></p>
 <p><b>Interest Rate:</b> <%= @account.rate if @account.rate %> %</p>
+<p><%= link_to 'Edit Account Info', edit_account_path(@account) %></p>
 <hr></hr>
 
 <p><b>Make a Deposit (+) or Withdrawal (-)</b><br />
@@ -15,6 +16,7 @@
 
 
 <hr></hr>
+<h4>Account Summary</h4>
 <p><b>Day:</b> <%= @account.time if @account.time %></p>
 <p><b>Last Balance:</b> <%= number_to_currency(@account.bal_last) if @account.bal_last %></p>
 <p><b>Interest Earned:</b> <%= number_to_currency(@account.int_eanred) if @account.int_eanred %></p>
@@ -24,5 +26,27 @@
 
 
 <hr></hr>
-<p><%= link_to 'Edit Account Info', edit_account_path(@account) %></p>
+<h4>Account History</h4>
+<table table class="table table-bordered">
+  <tr>
+    <th>Day</th>
+    <th>Beginning Balance</th>
+  	<th>Interest Earned</th>
+  	<th>Transaction Amount</th>
+    <th>Ending Balance</th>
+  </tr>
+
+<% @account.transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.day %></td>
+    <td><%= transaction.bal_begin %></td>
+    <td><%= transaction.earned %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= transaction.bal_end %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
 

@@ -1,6 +1,9 @@
 NewMHB::Application.routes.draw do
 
 
+  get "transactions/index"
+
+
   devise_for :users
 
   resources :parents

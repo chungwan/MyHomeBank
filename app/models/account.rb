@@ -2,7 +2,7 @@ class Account < ActiveRecord::Base
   belongs_to :bank
   belongs_to :kid
   attr_accessible :ac_name, :rate, :bal_current, :bal_last, :int_earned, :time, :last_tx, :kid_id, :bank_id, :make_transaction
-
+  has_many :transactions,:dependent => :destroy
 
 
  

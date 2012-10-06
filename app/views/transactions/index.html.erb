@@ -1,0 +1,25 @@
+<h1>All Transactions</h1>
+
+<table table class="table table-bordered">
+  <tr>
+	<th>Account</th>
+    <th>Day</th>
+    <th>Beginning Balance</th>
+  	<th>Interest Earned</th>
+  	<th>Transaction Amount</th>
+    <th>Ending Balance</th>
+  </tr>
+
+<% @transactions.each do |transaction| %>
+  <tr>
+	<td><%= transaction.account.ac_name %></td>
+    <td><%= transaction.day %></td>
+    <td><%= transaction.bal_begin %></td>
+    <td><%= transaction.earned %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= transaction.bal_end %></td>
+  </tr>
+<% end %>
+
+</table>
+
