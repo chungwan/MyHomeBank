@@ -8,16 +8,18 @@
   	<th>Interest Earned</th>
   	<th>Transaction Amount</th>
     <th>Ending Balance</th>
+	<th></th>
   </tr>
 
 <% @transactions.each do |transaction| %>
   <tr>
-	<td><%= transaction.account.ac_name %></td>
-    <td><%= transaction.day %></td>
-    <td><%= transaction.bal_begin %></td>
-    <td><%= transaction.earned %></td>
-    <td><%= transaction.amount %></td>
-    <td><%= transaction.bal_end %></td>
+	<td><%= transaction.account.ac_name if transaction.account %></td>
+    <td><%= transaction.day if transaction.day %></td>
+    <td><%= transaction.bal_begin if transaction.bal_begin %></td>
+    <td><%= transaction.earned if transaction.earned %></td>
+    <td><%= transaction.amount if transaction.amount %></td>
+    <td><%= transaction.bal_end if transaction.bal_end %></td>
+ <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
   </tr>
 <% end %>
 

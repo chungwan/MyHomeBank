@@ -1,0 +1,15 @@
+<h2>Make A Transaction for account: <%= @transaction.account.ac_name %></h2>
+
+
+
+<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />
+Amount ($) 
+<%= form_for @transaction do |f| %>
+  <%= f.number_field :perform_transaction %>
+	<%= f.submit "Confirm" %>
+<% end %>
+</p>
+
+
+<%= link_to 'Back', accounts_path(@transaction.account) %>
+

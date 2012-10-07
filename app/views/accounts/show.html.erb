@@ -6,13 +6,18 @@
 <p><%= link_to 'Edit Account Info', edit_account_path(@account) %></p>
 <hr></hr>
 
-<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />
-	Amount ($) 
+
+<p><%= link_to 'Make A Transaction', new_transaction_path(:account_id=>@account) %> (here manipulates transaction record)</p>
+
+
+<p><b>Make a Deposit (+) or Withdrawal (-)</b>  (here manipulates account record)<br />
+Amount ($) 
 <%= form_for @account do |f| %>
-    <%= f.number_field :make_transaction %>
+  <%= f.number_field :make_transaction %>
 	<%= f.submit "Confirm" %>
 <% end %>
 </p>
+
 
 
 <hr></hr>

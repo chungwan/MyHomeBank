@@ -7,17 +7,16 @@
     <th>Bank</th>
   	<th>User</th>
   	<th>Number of kids</th>
- 	<th></th>
   </tr>
 
 <% @parents.each do |parent| %>
   <tr>
-	<td><%= check_box_tag(:pet_dog) %></td>
+	<td> <%= link_to check_box_tag(:_destroy), parent, method: :delete, data: { confirm: 'Are you sure?' } %> Delete
+		</td>
     <td><%= link_to parent.p_name, parent %></td>
     <td><%= parent.bank.b_name if parent.bank %></td>
     <td><%= link_to parent.user.email, edit_user_registration_path if parent.user %></td>
 	<td><%= parent.kids.count if parent.kids %></td>
-	<td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 

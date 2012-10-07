@@ -5,7 +5,7 @@ class Kid < ActiveRecord::Base
   has_one :bank, :through => :account
   belongs_to :user
   
-  attr_accessible :k_email, :k_name, :parent_id, :bank_id, :account_attributes, :time, :make_transaction, :transactions_attributes
+  attr_accessible :k_email, :k_name, :parent_id, :bank_id, :account_attributes, :time, :make_transaction, :transactions_attributes, :perform_transaction
   
   accepts_nested_attributes_for :account, :transactions
   

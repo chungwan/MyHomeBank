@@ -11,12 +11,8 @@
     <%= f.email_field :k_email %>
   </p>
 
-
-
-
     <%= f.hidden_field :parent_id %>
 
-	
 
 	<%= f.fields_for :account do |builder| %>
 		<%= builder.hidden_field :bank_id %>
@@ -27,22 +23,9 @@
 	<p>Interest Rate (%)<br/>
 		<%= builder.number_field :rate %>
 	</p> 
-	<p>Opening Balance ($)<br/>
-		<%= builder.number_field :bal_current %>
-	</p>
+	
 	<% end %>
 		
-	<%= f.fields_for :transaction do |builder| %>
-		<%= builder.hidden_field :day %>
-		<%= builder.hidden_field :bal_end %>
-	<% end %>
-			
-		
-
-
-
-
-
   <p>
     <%= f.submit "Create" %>
   </p>

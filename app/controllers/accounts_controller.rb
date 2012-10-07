@@ -9,17 +9,10 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
-    @account.kid_id = (params[:kid_id])
-    @account.bank_id = (params[:bank_id])
   end
   
   def create
     @account = Account.new(params[:account])
-    @account.update_attributes(params[:kid_id])
-    @account.update_attributes(params[:bank_id])
-    @account.update_attribute(:time,0)
-    @account.update_attributes(params[:rate])
-    @account.update_attributes(params[:bal_current])
     if @account.save
       redirect_to @account
     else

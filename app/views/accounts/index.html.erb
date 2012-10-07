@@ -10,7 +10,7 @@
 
 <% @accounts.each do |account| %>
   <tr>
-    <td><%= account.ac_name %></td>
+    <td><%= link_to account.ac_name, account %></td>
    	<td><%= account.kid.k_name if account.kid %></td>
    	<td><%= account.bank.b_name if account.bank %></td>
 	 <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
