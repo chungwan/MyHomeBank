@@ -10,6 +10,7 @@ class ParentsController < ApplicationController
   def new
     @parent = Parent.new
     @parent.build_bank
+   
   end
    
   def create

@@ -1,41 +1,41 @@
 <h2>Account: <%= @account.ac_name %></h2>
 
-<p><b>Kid:</b> <%= link_to @account.kid.k_name, @account.kid %></p>
+<h4>Current Balance: <%= number_to_currency(@account.bal_current) if @account.bal_current %></h4>
+
+
+<h4>Account Summary</h4>
+
+<p><b>Account Owner:</b> <%= link_to @account.kid.k_name, @account.kid %> (<%= link_to 'Edit Account Info', edit_account_path(@account) %>)</p>
 <p><b>Bank:</b> <%= @account.bank.b_name %></p>
 <p><b>Interest Rate:</b> <%= @account.rate if @account.rate %> %</p>
-<p><%= link_to 'Edit Account Info', edit_account_path(@account) %></p>
-<hr></hr>
+<p></p>
 
-
-<p><%= link_to 'Make A Transaction', new_transaction_path(:account_id=>@account) %> (here manipulates transaction record)</p>
-
-
-<p><b>Make a Deposit (+) or Withdrawal (-)</b>  (here manipulates account record)<br />
-Amount ($) 
-<%= form_for @account do |f| %>
-  <%= f.number_field :make_transaction %>
-
-
-
-
-	<%= f.submit "Confirm" %>
-<% end %>
-</p>
-
-
-
-<hr></hr>
-<h4>Account Summary</h4>
 <p><b>Day:</b> <%= @account.time if @account.time %></p>
 <p><b>Last Balance:</b> <%= number_to_currency(@account.bal_last) if @account.bal_last %></p>
 <p><b>Interest Earned:</b> <%= number_to_currency(@account.int_eanred) if @account.int_eanred %></p>
 <p><b>Last Transaction:</b> <%= number_to_currency(@account.last_tx) if @account.last_tx %></p>
 <p><b>Current Balance:</b> <%= number_to_currency(@account.bal_current) if @account.bal_current %></p>
 
+<hr></hr>
+
+
+
+
+
+
+<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />  
+Amount ($) 
+<%= form_for @account do |f| %>
+  <%= f.number_field :make_transaction %>
+  <%= f.submit "Confirm" %>
+<% end %>
+</p>
+
+
 
 
 <hr></hr>
-<h4>Account History</h4>
+<h4>Transaction History</h4>
 <table table class="table table-bordered">
   <tr>
     <th>Day</th>
@@ -48,10 +48,10 @@ Amount ($)
 <% @account.transactions.each do |transaction| %>
   <tr>
     <td><%= transaction.day %></td>
-    <td><%= transaction.bal_begin %></td>
-    <td><%= transaction.earned %></td>
-    <td><%= transaction.amount %></td>
-    <td><%= transaction.bal_end %></td>
+    <td><%= number_to_currency(transaction.bal_begin) %></td>
+    <td><%= number_to_currency(transaction.earned) %></td>
+    <td><%= number_to_currency(transaction.amount) %></td>
+    <td><%= number_to_currency(transaction.bal_end) %></td>
   </tr>
 <% end %>
 

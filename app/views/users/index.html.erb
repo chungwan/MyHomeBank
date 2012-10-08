@@ -2,17 +2,15 @@
 
 <table table class="table table-bordered">
   <tr>
-    <th>Name</th>
     <th>Email</th>
-    <th>User Type</th>
+	<th>User Type</th>
 	<th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name if user.name %></td>
-    <td><%= user.email if user.email %></td>
-   	<td><%= user.user_type if user.user_type %></td>
+    <td><%= user.email %></td>
+   	<td><%= user.person_type if user.person %></td>
 	<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

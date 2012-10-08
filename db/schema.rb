@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008000808) do
+ActiveRecord::Schema.define(:version => 20121008230438) do
 
   create_table "accounts", :force => true do |t|
     t.string   "ac_name"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20121008000808) do
   end
 
   add_index "kids", ["parent_id"], :name => "index_kids_on_parent_id"
-  add_index "kids", ["user_id"], :name => "index_kids_on_user_id"
 
   create_table "parents", :force => true do |t|
     t.string   "p_name"
@@ -58,8 +57,6 @@ ActiveRecord::Schema.define(:version => 20121008000808) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
-
-  add_index "parents", ["user_id"], :name => "index_parents_on_user_id"
 
   create_table "transactions", :force => true do |t|
     t.integer  "account_id"
@@ -87,12 +84,12 @@ ActiveRecord::Schema.define(:version => 20121008000808) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "user_type"
-    t.string   "name"
-    t.boolean  "is_parent"
+    t.string   "person_type"
+    t.integer  "person_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["person_id", "person_type"], :name => "index_users_on_person_id_and_person_type"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

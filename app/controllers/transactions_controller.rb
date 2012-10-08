@@ -14,7 +14,6 @@ class TransactionsController < ApplicationController
   
   def create
     @transaction = Transaction.new(params[:transaction])
-    @transaction.update_attributes(params[:account_id])
     if @transaction.save
       redirect_to transactions_index_path
     else

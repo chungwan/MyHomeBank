@@ -3,7 +3,8 @@ class Kid < ActiveRecord::Base
   has_one :account,:dependent => :destroy
   has_many :transactions, :through => :account
   has_one :bank, :through => :account
-  belongs_to :user
+  has_one :user, as: :person
+
   
   attr_accessible :k_email, :k_name, :parent_id, :bank_id, :account_attributes, :time, :make_transaction, :transactions_attributes, :perform_transaction
   

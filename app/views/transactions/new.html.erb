@@ -2,10 +2,17 @@
 
 
 
+<p><b>Day:</b> <%= @transaction.account.time  %></p>
+<p><b>Last Balance:</b> <%= number_to_currency(@transaction.account.bal_last) %></p>
+<p><b>Interest Earned:</b> <%= number_to_currency(@transaction.account.int_eanred) %></p>
+<p><b>Last Transaction:</b> <%= number_to_currency(@transaction.account.last_tx) %></p>
+<p><b>Current Balance:</b> <%= number_to_currency(@transaction.account.bal_current) %></p>
+
 <p><b>Make a Deposit (+) or Withdrawal (-)</b><br />
 Amount ($) 
 <%= form_for @transaction do |f| %>
   <%= f.number_field :perform_transaction %>
+	<%= f.hidden_field :account_id %>
 	<%= f.submit "Confirm" %>
 <% end %>
 </p>

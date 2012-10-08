@@ -17,13 +17,12 @@
 	<%= f.fields_for :account do |builder| %>
 		<%= builder.hidden_field :bank_id %>
 		<%= builder.hidden_field :time %>
-	<p>Account Name<br />
+		<p>Account Name<br />
 		<%= builder.text_field :ac_name %>
-	</p>
-	<p>Interest Rate (%)<br/>
+		</p>
+		<p>Interest Rate (%)<br/>
 		<%= builder.number_field :rate %>
-	</p> 
-	
+		</p>	
 	<% end %>
 		
   <p>

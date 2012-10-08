@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
-    @user.update_attribute(:user_type,"Parent")
-    @user.update_attribute(:is_parent,true)
+    
     respond_to do |format|
           if @user.save
             # Tell the UserMailer to send a welcome Email after save

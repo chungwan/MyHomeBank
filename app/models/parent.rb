@@ -4,7 +4,7 @@ class Parent < ActiveRecord::Base
   has_one :bank, :dependent => :destroy
   has_many :kids, :dependent => :destroy
   has_many :accounts, :through => :kids
-  belongs_to :user
+  has_one :user, as: :person
   
   accepts_nested_attributes_for :bank
 end
