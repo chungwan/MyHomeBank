@@ -1,35 +1,28 @@
 <h2>Account: <%= @account.ac_name %></h2>
 
-<h4>Current Balance: <%= number_to_currency(@account.bal_current) if @account.bal_current %></h4>
 
 
-<h4>Account Summary</h4>
-
-<p><b>Account Owner:</b> <%= link_to @account.kid.k_name, @account.kid %> (<%= link_to 'Edit Account Info', edit_account_path(@account) %>)</p>
-<p><b>Bank:</b> <%= @account.bank.b_name %></p>
-<p><b>Interest Rate:</b> <%= @account.rate if @account.rate %> %</p>
-<p></p>
-
-<p><b>Day:</b> <%= @account.time if @account.time %></p>
-<p><b>Last Balance:</b> <%= number_to_currency(@account.bal_last) if @account.bal_last %></p>
-<p><b>Interest Earned:</b> <%= number_to_currency(@account.int_eanred) if @account.int_eanred %></p>
-<p><b>Last Transaction:</b> <%= number_to_currency(@account.last_tx) if @account.last_tx %></p>
-<p><b>Current Balance:</b> <%= number_to_currency(@account.bal_current) if @account.bal_current %></p>
-
-<hr></hr>
-
-
-
-
-
-
-<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />  
-Amount ($) 
-<%= form_for @account do |f| %>
-  <%= f.number_field :make_transaction %>
-  <%= f.submit "Confirm" %>
-<% end %>
-</p>
+<div class="container">
+	<div class="row">
+		<div class="span6">
+			<h4>Current Balance: <%= number_to_currency(@account.bal_current) if @account.bal_current %></h4>
+			<p><b>Make a Deposit (+) or Withdrawal (-)</b><br />  
+				Amount ($) 
+				<%= form_for @account do |f| %>
+					<%= f.number_field :make_transaction %>
+		  			<%= f.submit "Confirm" %>
+				<% end %>
+			</p>
+		</div>
+	
+		<div class="span6">
+			<p><b>Account Owner:</b> <%= link_to @account.kid.k_name, @account.kid %> (<%= link_to 'Edit Account Info', edit_account_path(@account) %>)</p>
+			<p><b>Bank:</b> <%= @account.bank.b_name %></p>
+			<p><b>Interest Rate:</b> <%= @account.rate if @account.rate %> %</p>
+			<p><b>Total Interest Earned To Date:</b></p>
+		</div>
+	</div>
+</div>
 
 
 
